@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常见过滤器演示</title>
+</head>
+<body>
+    <h3>upper过滤器作用后：{{ s|upper }}</h3>
+    <h3>lower过滤器作用后：{{ s|lower }}</h3>
+    <h3>title过滤器作用后：{{ s|title }}</h3>
+    <h3>capitalize过滤器作用后：{{ s|capitalize }}</h3>
+    <h3>reverse过滤器作用后：{{ s|reverse }}</h3>
+    <h3>sum过滤器作用后：{{ numbers|sum }}</h3>
+    <h3>不使用safe过滤器：{{ danger }}</h3>
+    <h3>使用safe过滤器：{{ danger|safe }}</h3>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery-3.1.1.js') }}"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("input#btn").click(function () {
+                $.ajax("/all/",{
+                    success:function (data) {
+                         $("div#msg").html("");
+                         for(var i=0;i<data.length;i++){
+                             var country_id = data[i].id;
+                             var country_name = data[i].name;
+                             var country_address = data[i].address;
+                             var content = "国家编号：" + country_id +"；名称：" + country_name + "；地址：" + country_address
+                             $("div#msg").append(content+"<br/>");
+                         }
+                    }
+                })
+            })
+        })
+    </script>
+    <title>显示国家</title>
+</head>
+<body>
+    <input type="button" id="btn" value="获取国家"/>
+    <div id="msg"></div>
+</body>
+</html>

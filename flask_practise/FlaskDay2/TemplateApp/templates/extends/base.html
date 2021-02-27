@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <h3>西安人民欢迎你~~~</h3>
+    {% block content %}
+        <h4 style="color:green">西安是国际化大都市</h4>
+    {% endblock %}
+    {% include 'extends/footer.html' %}
+</body>
+</html>

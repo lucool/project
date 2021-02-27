@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显示所有水果信息</title>
+</head>
+<body>
+     <ol>
+       {% for fruit in fruits %}
+           <li> {{ fruit[1] }} </li>
+       {% endfor %}
+     </ol>
+
+</body>
+</html>

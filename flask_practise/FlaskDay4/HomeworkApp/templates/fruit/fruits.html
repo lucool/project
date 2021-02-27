@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>所有水果</title>
+</head>
+<body>
+    {% for fruit in fruits %}
+        <a href="{{ url_for('fruit_blue.fruit_detail_view') }}?id={{ fruit.id }}">{{ fruit.name }}</a>
+        <br/> <br/>
+    {% endfor %}
+</body>
+</html>

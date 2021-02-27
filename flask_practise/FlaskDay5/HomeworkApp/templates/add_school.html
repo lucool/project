@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加学校</title>
+</head>
+<body>
+    <form action="{{ url_for('myblue.school_view') }}" method="post">
+        学校名称：<input type="text" name="school_name"/> <br/>
+        学校地址：<input type="text" name="school_address"/> <br/>
+        <input type="submit" value="添加学校"/><br/>
+        <a href="http://localhost:5000/student/">添加学生</a>
+    </form>
+</body>
+</html>

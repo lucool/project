@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery-3.1.1.js') }}" ></script>
+    <script type="text/javascript">
+        $(function () {
+            $("input#btn").click(function () {
+                var fruit_id = $("input#fruit").val();
+                var url="http://localhost:6666/fruit/?fruit_id="+fruit_id;  // 拼凑发送请求的URL
+                $.ajax(url,{
+                    success:function (data) {
+                        if(data["code"]=="200"){
+                            var fruit_name = data["fruit"]["fruit_name"];
+                            var fruit_price = data["fruit"]["fruit_price"];
+                            var result = "水果名称：" + fruit_name + ";价格：" + fruit_price;
+                            alert(data["msg"]);
+                            alert(result);
+                        }else if(data["code"]=="404"){
+                            alert(data["msg"]);
+                        }
+                    }
+                })
+            })
+        })
+    </script>
+    <title>index</title>
+</head>
+<body>
+    请输入水果编号：<input type="text" id="fruit"/> <br/>
+    <input type="button" value="点击查询" id="btn"/>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加学生</title>
+</head>
+<body>
+    <form action="{{ url_for('myblue.student_view') }}" method="post">
+        学生姓名：<input type="text" name="student_name"/> <br/>
+        成绩：<input type="text" name="student_score"/> <br/>
+        所在学校：<select name="student_school">
+                      {% for school in all_schools %}
+                           <option value="{{ school.id }}">{{ school.name }}</option>
+                      {% endfor %}
+                  </select>
+        <input type="submit" value="添加学生"/>
+    </form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery-3.1.1.js') }}"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("input[name='sex']").click(function () {
+                var sex = $("input[name='sex']:checked").val();    // 获取当前选中的单选按钮的value值
+                $.ajax("/nice/"+sex+"/",{
+                    success:function (data) {
+                        var pic_path = data["pic_path"];
+                        $("img#pic_sex").attr("src",pic_path);
+                    }
+                })
+            })
+        })
+    </script>
+    <title>选择性别</title>
+</head>
+<body>
+    男：<input type="radio" name="sex" value="boy" checked="checked"/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    女：<input type="radio" name="sex" value="girl"/>
+    <img id="pic_sex" src="{{ url_for('static',filename='images/boy.jpg') }}" width="100px" height="100px"/>
+</body>
+</html>

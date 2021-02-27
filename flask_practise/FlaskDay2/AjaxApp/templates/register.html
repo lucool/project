@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery-3.1.1.js') }}"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("input#regname").blur(function () {   // 当用户名文本框失去焦点时，自动触发blur事件
+                var regname = $(this).val();   // 获取输入的注册用户名
+                $.ajax("/check/"+regname+"/",{
+                    success:function(data){
+                        var code = data["code"];
+                        var msg = data["msg"];
+                        if(code=="555"){
+                            $("span#msg").css("color","red").html(msg);
+                        }else if(code=="666"){
+                            $("span#msg").css("color","green").html(msg);
+                        }
+                    }
+                })
+            });
+        })
+    </script>
+    <title>注册页面</title>
+</head>
+<body>
+    注册用户名：<input type="text" name="regname" id="regname"/>  <span id="msg"></span> <br/>
+    注册密码：<input type="password" name="regpwd"/>  <br/>
+</body>
+</html>

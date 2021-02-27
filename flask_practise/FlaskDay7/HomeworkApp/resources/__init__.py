@@ -1,0 +1,1 @@
+from HomeworkApp.resources.school_resource import SchoolResource

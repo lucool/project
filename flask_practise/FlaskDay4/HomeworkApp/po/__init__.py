@@ -1,0 +1,1 @@
+from HomeworkApp.po.fruit_class import Fruit
