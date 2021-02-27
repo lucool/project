@@ -1,0 +1,11 @@
+{% extends 'template_app/extends/base.html' %}
+
+{% block title %} 西安市政府 {% endblock %}
+
+{% block content %}
+   {{ block.super }}
+   <h3 style="background-color:brown">
+       西安是十三朝古都！
+       <span style="color:yellow"> {{ info }} </span>
+   </h3>
+{% endblock %}

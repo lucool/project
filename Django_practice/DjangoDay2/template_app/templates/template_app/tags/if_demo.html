@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>if标签演示</title>
+</head>
+<body>
+    {% if score >= 90 %}
+        <h3 style="color:green;">优秀</h3>
+    {% elif score >= 80 %}
+        <h3 style="color:lightgreen;">良好</h3>
+    {% elif score >= 70 %}
+        <h3 style="color:blue;">一般</h3>
+    {% elif score >= 60 %}
+        <h3 style="color:yellow;">及格</h3>
+    {% else %}
+        <h3 style="color:red;">不及格！</h3>
+    {% endif %}
+</body>
+</html>
