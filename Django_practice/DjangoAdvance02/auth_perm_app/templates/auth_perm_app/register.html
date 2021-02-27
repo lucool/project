@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册页面</title>
+</head>
+<body>
+    <form action="{% url 'ap:reg' %}" method="post">
+        {% csrf_token %}
+        注册用户名：<input type="text" name="regname"/> <br/>
+        注册密码：<input type="password" name="regpwd"/> <br/>
+        注册邮箱：<input type="email" name="regemail"/> <br/>
+        <input type="submit" value="注册"/>
+    </form>
+</body>
+</html>

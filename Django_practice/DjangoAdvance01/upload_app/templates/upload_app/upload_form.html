@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传表单页面</title>
+</head>
+<body>
+    <form action="{% url 'up:form' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        上传人：<input type="text" name="author"/> <br/>
+        上传照片：<input type="file" name="pic"/> <br/>
+        <input type="submit" value="点击上传"/>
+    </form>
+</body>
+</html>

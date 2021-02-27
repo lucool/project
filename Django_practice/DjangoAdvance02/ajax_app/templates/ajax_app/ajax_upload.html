@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax上传</title>
+    <script type="text/javascript" src="{% static 'js/jquery-3.1.1.js' %}"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("input#btn").click(function () {
+                var formData = new FormData();   // FormData对象用来收集数据
+                formData.append("upload_author",$("input[name='author']").val());  // 添加文本数据
+                formData.append("upload_file",$("input[name='myfile']")[0].files[0]); // 添加上传的二进制数据
+                formData.append("csrfmiddlewaretoken",$("input[name='csrfmiddlewaretoken']").val());  // 添加csrf token,为了通过CSRF防御中间件
+                $.ajax("{% url 'ajax:up' %}",{
+                    type:"POST",
+                    data:formData,
+                    contentType:false,
+                    processData:false,
+                    success:function (data) {
+                        if(data["code"]=="201"){
+                            $("img#pic").css("display","block").attr("src",data["path"]);
+                        }
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    {% csrf_token %}
+    作者：<input type="text" name="author"/> <br/>
+    请选择文件：<input type="file" name="myfile"/>
+    <input type="button" id="btn" value="上传"/>
+    <img src="" id="pic" width="150px" height="150px" style="display:none"/>
+</body>
+</html>

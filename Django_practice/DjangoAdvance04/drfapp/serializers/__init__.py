@@ -1,0 +1,3 @@
+from drfapp.serializers.product_serializers import ProductSerializer
+from drfapp.serializers.book_serializers import BookSerializer
+from drfapp.serializers.toy_serializers import ToySerializer

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+</head>
+<body>
+    <form action="{% url 'csrf:reg' %}" method="post">
+        {% csrf_token %}
+        注册用户名：<input type="text" name="regname"/> <br/>
+        <input type="submit" value="注册"/>
+    </form>
+</body>
+</html>

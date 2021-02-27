@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+</head>
+<body>
+    {% for msg in messages %}
+        <span style="color:red">{{ msg }} </span>
+    {% endfor %}
+
+    <form action="{% url 'home:log' %}" method="post">
+        {% csrf_token %}
+        登录名：<input type="text" name="logname"/> <br/>
+        登录密码：<input type="password" name="logpwd"/> <br/>
+        <input type="submit" value="登录"/>
+    </form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加学生页面</title>
+</head>
+<body>
+    <form action="{% url 'home:student' %}" method="post">
+        姓名：<input name="studentname" type="text"/> <br/>
+        性别&nbsp;&nbsp;男：<input name="studentsex" type="radio" value="boy"/>
+        女：<input name="studentsex" type="radio" value="girl"/><br/>
+        成绩：<input type="number" name="studentscore"/> <br/>
+        所在学校：<select name="school_id">
+                     {% for school in schools %}
+                        <option value="{{ school.id }}">{{ school.name }}</option>
+                     {% endfor %}
+                  </select>
+        <input type="submit" value="添加学校"/>
+    </form>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>运动模板</title>
+</head>
+<body>
+   {% for sport in sports %}
+       {{ sport }} <br/>
+   {% empty %}
+       <h3 style="color:red">没有运动信息</h3>
+   {% endfor %}
+
+</body>
+</html>

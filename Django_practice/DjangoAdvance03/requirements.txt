@@ -1,0 +1,4 @@
+django-redis
+django-redis-cache
+djangorestframework
+django-filter

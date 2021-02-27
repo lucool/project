@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+{% load myfilter %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义过滤器模板</title>
+</head>
+<body>
+    {{ mydict|info_filter:"sport" }}
+</body>
+</html>

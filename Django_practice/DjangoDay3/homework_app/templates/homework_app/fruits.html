@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显示水果页面</title>
+</head>
+<body>
+    <ul>
+        {% for fruit in fruits %}
+             {% if forloop.first %}
+                 <li style="background-color:yellow"> {{ fruit }} </li>
+             {% else %}
+                 <li> {{ fruit }} </li>
+             {% endif %}
+        {% endfor %}
+    </ul>
+    
+</body>
+</html>

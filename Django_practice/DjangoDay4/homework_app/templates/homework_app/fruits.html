@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax获取水果页面</title>
+    <script type="text/javascript" src="{% static 'js/jquery-3.1.1.js' %}"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("input#btn").click(function () {
+                var msg = "";
+                $.ajax("{% url 'home:fruits' %}",{
+                    success:function (data) {
+                        for(var key in data){
+                            var fruit = data[key];
+                            msg += "水果编号：" + fruit.id + "<br/>";
+                            msg += "水果名称：" + fruit.name + "<br/>";
+                            msg += "水果价格：" + fruit.price + "<br/>";
+                            msg += "<hr/>";
+                        }
+                        $("div#fruits_div").html(msg);
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="Ajax获取水果" id="btn"/>
+    <div id="fruits_div"></div>
+</body>
+</html>
